@@ -1,19 +1,19 @@
-name: compile
+name: compile planck's keymap
 
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "planck-v*.*.*"
 
 jobs:
-  compile:
+  compile-planck-keymap:
     runs-on: ubuntu-20.04
     container:
       image: qmkfm/qmk_firmware
     steps:
       - uses: actions/checkout@v2
-      - name: Copy files
-        run: cp -r ./planck/keymaps/jonz94 /qmk_firmware/keyboards/planck/keymaps/jonz94
+      - name: Copy planck directory
+        run: cp -r ./planck /qmk_firmware/keyboards/planck/keymaps/jonz94
       - name: Change working directory to /qmk_firmware
         run: cd /qmk_firmware
       - name: Compile
