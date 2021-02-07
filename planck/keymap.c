@@ -14,7 +14,7 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   WORKMAN,
   COLEMAK,
-  BACKLIT
+  SIM // switch input method
 };
 
 // Tap Dance keycodes
@@ -40,6 +40,8 @@ uint8_t current_dance(qk_tap_dance_state_t *state);
 void raise_osmlsft_finished(qk_tap_dance_state_t *state, void *user_data);
 void raise_osmlsft_reset(qk_tap_dance_state_t *state, void *user_data);
 
+bool is_alt_gui_swapped(void);
+
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ROSMS TD(RAISE_OSMLSFT)
@@ -59,14 +61,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | S_LB |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | S_RB |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |ROSMS |S_SPC | Bksp |L_ENT | Left | Down |  Up  |Right |
+ * | SIM  | Ctrl | Alt  | GUI  |ROSMS |S_SPC | Bksp |L_ENT | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   C_ESC,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   S_LB,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, S_RB   ,
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, ROSMS,   S_SPC,   KC_BSPC, L_ENT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  SIM,     KC_LCTL, KC_LALT, KC_LGUI, ROSMS,   S_SPC,   KC_BSPC, L_ENT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Workman
@@ -77,14 +79,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | S_LB |   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  | S_RB |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |ROSMS |S_SPC | Bksp |L_ENT | Left | Down |  Up  |Right |
+ * | SIM  | Ctrl | Alt  | GUI  |ROSMS |S_SPC | Bksp |L_ENT | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_WORKMAN] = LAYOUT_planck_grid(
   KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_BSLS,
   C_ESC,   KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
   S_LB,    KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, S_RB   ,
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, ROSMS,   S_SPC,   KC_BSPC, L_ENT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  SIM,     KC_LCTL, KC_LALT, KC_LGUI, ROSMS,   S_SPC,   KC_BSPC, L_ENT,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Colemak
@@ -95,14 +97,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Raise |Space | Bksp |Lower | Left | Down |  Up  |Right |
+ * | SIM  | Ctrl | Alt  | GUI  |Raise |Space | Bksp |Lower | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_planck_grid(
   KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
   KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT ,
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, RAISE,   KC_SPC,  KC_BSPC, LOWER,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  SIM,     KC_LCTL, KC_LALT, KC_LGUI, RAISE,   KC_SPC,  KC_BSPC, LOWER,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Lower
@@ -191,20 +193,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case BACKLIT:
+    case SIM:
       if (record->event.pressed) {
-        register_code(KC_RSFT);
-        #ifdef BACKLIGHT_ENABLE
-          backlight_step();
-        #endif
-        #ifdef KEYBOARD_planck_rev5
-          writePinLow(E6);
-        #endif
-      } else {
-        unregister_code(KC_RSFT);
-        #ifdef KEYBOARD_planck_rev5
-          writePinHigh(E6);
-        #endif
+        if (is_alt_gui_swapped()) {
+          tap_code16(LGUI(KC_SPC));
+        } else {
+          tap_code16(LOPT(KC_SPC));
+        }
       }
       return false;
       break;
@@ -354,3 +349,9 @@ void raise_osmlsft_reset(qk_tap_dance_state_t *state, void *user_data) {
 qk_tap_dance_action_t tap_dance_actions[] = {
   [RAISE_OSMLSFT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, raise_osmlsft_finished, raise_osmlsft_reset)
 };
+
+bool is_alt_gui_swapped() {
+  keymap_config.raw = eeconfig_read_keymap();
+
+  return keymap_config.swap_lalt_lgui;
+}
