@@ -17,7 +17,7 @@ jobs:
       - name: Change working directory to /qmk_firmware
         run: cd /qmk_firmware
       - name: Compile
-        run: qmk compile -kb dztech/dz60rgb_wkl/v2 -km jonz94
+        run: qmk compile -kb dztech/dz60rgb_wkl/v2 -km via-jonz94
       - name: Rename compiled hex file
         run: mv dztech_dz60rgb_wkl_v2_via-jonz94.hex dztech-dz60rgb-wkl-v2-via-jonz94.hex
       - uses: actions/upload-artifact@master
