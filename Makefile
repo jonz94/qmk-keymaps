@@ -1,7 +1,7 @@
 all:
 	@$(MAKE) -s compile-planck
 	@$(MAKE) -s compile-dztech-dz60rgb-wkl-v2-via
-	@$(MAKE) -s compile-dztech-dz60rgb-wkl-v2-via
+	@$(MAKE) -s compile-dztech-dz60rgb-ansi-v2-via
 	@$(MAKE) -s compile-idobo-via
 
 compile-planck:
