@@ -61,6 +61,22 @@ jobs:
           name: dztech dz60rgb WKL v2's VIA by jonz94
           path: /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
 
+      # idobo
+      - name: Copy idobo-via directory
+        run: cp -r ./idobo-via /qmk_firmware/keyboards/idobo/keymaps/via_jonz94
+
+      - name: Compile idobo's VIA keymap
+        run: qmk compile -kb idobo -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/idobo_via_jonz94.hex /qmk_firmware/idobo-via-jonz94.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: idobo's VIA by jonz94
+          path: /qmk_firmware/idobo-via-jonz94.hex
+
       # Release
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -70,5 +86,6 @@ jobs:
             /qmk_firmware/planck-rev6-jonz94.bin
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
+            /qmk_firmware/idobo-via-jonz94.hex
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
