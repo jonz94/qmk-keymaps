@@ -23,7 +23,8 @@ jobs:
       - name: Rename compiled file
         run: mv /qmk_firmware/planck_rev6_jonz94.bin /qmk_firmware/planck-rev6-jonz94.bin
 
-      - uses: actions/upload-artifact@master
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
         with:
           name: planck rev6 keymap by jonz94
           path: /qmk_firmware/planck-rev6-jonz94.bin
@@ -38,10 +39,27 @@ jobs:
       - name: Rename compiled file
         run: mv /qmk_firmware/dztech_dz60rgb_wkl_v2_via_jonz94.hex /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
 
-      - uses: actions/upload-artifact@master
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
         with:
           name: dztech dz60rgb WKL v2's VIA by jonz94
           path: /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
+
+      # dztech dz60rgb ANSI v2 VIA
+      - name: Copy dztech-dz60rgb-ansi-v2-via directory
+        run: cp -r ./dztech-dz60rgb-ansi-v2-via /qmk_firmware/keyboards/dztech/dz60rgb_ansi/keymaps/via_jonz94
+
+      - name: Compile dztech dz60rgb WKL v2's VIA keymap
+        run: qmk compile -kb dztech/dz60rgb_ansi/v2 -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/dztech_dz60rgb_ansi_v2_via_jonz94.hex /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: dztech dz60rgb WKL v2's VIA by jonz94
+          path: /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
 
       # Release
       - name: Release
@@ -51,5 +69,6 @@ jobs:
           files: |
             /qmk_firmware/planck-rev6-jonz94.bin
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
+            /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
