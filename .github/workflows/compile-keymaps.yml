@@ -7,7 +7,7 @@ on:
 
 jobs:
   compile-keymaps:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: qmkfm/qmk_firmware
     steps:
