@@ -29,6 +29,25 @@ jobs:
           name: planck rev6 keymap by jonz94
           path: /qmk_firmware/planck-rev6-jonz94.bin
 
+      # Planck rev6 VIA
+      - name: Remove planck keyboard directory
+        run: rm -rf /qmk_firmware/keyboards/planck
+
+      - name: Copy planck-via directory
+        run: cp -r ./planck-via /qmk_firmware/keyboards/planck
+
+      - name: Compile planck's VIA keymap
+        run: qmk compile -kb planck/rev6 -km via
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/planck_rev6_via.bin /qmk_firmware/olkb-planck-rev6-via-mixedfeelings.bin
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: planck rev6's VIA by mixedfeelings
+          path: /qmk_firmware/olkb-planck-rev6-via-mixedfeelings.bin
+
       # dztech dz60rgb WKL v2 VIA
       - name: Copy dztech-dz60rgb-wkl-v2-via directory
         run: cp -r ./dztech-dz60rgb-wkl-v2-via /qmk_firmware/keyboards/dztech/dz60rgb_wkl/keymaps/via_jonz94
@@ -116,6 +135,8 @@ jobs:
         with:
           files: |
             /qmk_firmware/planck-rev6-jonz94.bin
+            /qmk_firmware/olkb-planck-rev6-via-mixedfeelings.bin
+            ./planck-via/olkb-planck-rev6-via-mixedfeelings.json
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/idobo-via-jonz94.hex
