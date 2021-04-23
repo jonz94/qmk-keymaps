@@ -48,6 +48,25 @@ jobs:
           name: planck rev6's VIA by mixedfeelings
           path: /qmk_firmware/olkb-planck-rev6-via-mixedfeelings.bin
 
+      # Preonic rev3 VIA
+      - name: Remove preonic keyboard directory
+        run: rm -rf /qmk_firmware/keyboards/preonic
+
+      - name: Copy preonic-via directory
+        run: cp -r ./preonic-via /qmk_firmware/keyboards/preonic
+
+      - name: Compile preonic's VIA keymap
+        run: qmk compile -kb preonic/rev3 -km via
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/preonic_rev3_via.bin /qmk_firmware/olkb-preonic-rev3-via-mixedfeelings.bin
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: preonic rev3's VIA by mixedfeelings
+          path: /qmk_firmware/olkb-preonic-rev3-via-mixedfeelings.bin
+
       # dztech dz60rgb WKL v2 VIA
       - name: Copy dztech-dz60rgb-wkl-v2-via directory
         run: cp -r ./dztech-dz60rgb-wkl-v2-via /qmk_firmware/keyboards/dztech/dz60rgb_wkl/keymaps/via_jonz94
@@ -137,6 +156,8 @@ jobs:
             /qmk_firmware/planck-rev6-jonz94.bin
             /qmk_firmware/olkb-planck-rev6-via-mixedfeelings.bin
             ./planck-via/olkb-planck-rev6-via-mixedfeelings.json
+            /qmk_firmware/olkb-preonic-rev3-via-mixedfeelings.bin
+            ./preonic-via/olkb-preonic-rev3-via-mixedfeelings.json
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/idobo-via-jonz94.hex
