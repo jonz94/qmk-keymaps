@@ -63,6 +63,22 @@ jobs:
           name: preonic rev3's VIA by jonz94
           path: /qmk_firmware/preonic-rev3-via-jonz94.bin
 
+      # zsa ergodox ez VIA
+      - name: Copy ergodox-via directory
+        run: cp -r ./ergodox-via /qmk_firmware/keyboards/ergodox_ez/keymaps/via_jonz94
+
+      - name: Compile zsa ergodox ez's VIA keymap
+        run: qmk compile -kb ergodox_ez -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/ergodox_ez_via_jonz94.hex /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: ergodox ez's VIA by awpr
+          path: /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
+
       # dztech dz60rgb WKL v2 VIA
       - name: Copy dztech-dz60rgb-wkl-v2-via directory
         run: cp -r ./dztech-dz60rgb-wkl-v2-via /qmk_firmware/keyboards/dztech/dz60rgb_wkl/keymaps/via_jonz94
@@ -152,6 +168,8 @@ jobs:
             /qmk_firmware/planck-rev6-jonz94.bin
             /qmk_firmware/planck-rev6-via-jonz94.bin
             /qmk_firmware/preonic-rev3-via-jonz94.bin
+            /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
+            ./ergodox-via/zsa-ergodox-ez-via-awpr.json
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/idobo-via-jonz94.hex
