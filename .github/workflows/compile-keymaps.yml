@@ -11,7 +11,7 @@ jobs:
   compile-keymaps:
     runs-on: ubuntu-latest
     container:
-      image: qmkfm/qmk_firmware
+      image: jonz94/qmk_firmware
     steps:
       - uses: actions/checkout@v2
 
