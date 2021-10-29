@@ -16,7 +16,7 @@ compile-planck-via:
 	docker run -it --rm -v ${CURDIR}/planck-via:/qmk_firmware/keyboards/planck/keymaps/jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb planck/rev6 -km jonz94 && cp planck_rev6_jonz94.bin /qmk_firmware/keyboards/planck/keymaps/jonz94/planck-rev6-via-jonz94.bin'
 
 compile-preonic-via:
-	docker run -it --rm -v ${CURDIR}/preonic-via:/qmk_firmware/keyboards/preonic/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb preonic/rev3 -km via_jonz94 && cp preonic_rev3_via_jonz94.bin /qmk_firmware/keyboards/preonic/olkb-preonic-rev3-via-jonz94.bin'
+	docker run -it --rm -v ${CURDIR}/preonic-via:/qmk_firmware/keyboards/preonic/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb preonic/rev3 -km via_jonz94 && cp preonic_rev3_via_jonz94.bin /qmk_firmware/keyboards/preonic/keymaps/via_jonz94/preonic-rev3-via-jonz94.bin'
 
 compile-ergodox-via:
 	docker run -it --rm -v ${CURDIR}/ergodox-via:/qmk_firmware/keyboards/ergodox_ez/keymaps/via jonz94/qmk_firmware sh -c 'qmk compile -kb ergodox_ez -km via && cp ergodox_ez_via.hex /qmk_firmware/keyboards/ergodox_ez/keymaps/via/zsa-ergodox-ez-via-awpr.hex'
