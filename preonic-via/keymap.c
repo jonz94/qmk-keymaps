@@ -174,7 +174,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
   return true;
 }
 
-void dip_switch_update_user(uint8_t index, bool active) {
+bool dip_switch_update_user(uint8_t index, bool active) {
   switch (index) {
     case 0:
       if (active) {
@@ -190,6 +190,8 @@ void dip_switch_update_user(uint8_t index, bool active) {
         muse_mode = false;
       }
   }
+
+  return true;
 }
 
 void matrix_scan_user(void) {

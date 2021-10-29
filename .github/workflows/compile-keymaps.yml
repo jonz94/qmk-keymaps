@@ -145,13 +145,13 @@ jobs:
 
       # xd75
       - name: Copy xd75-via directory
-        run: cp -r ./xd75-via /qmk_firmware/keyboards/xd75/keymaps/via_jonz94
+        run: cp -r ./xd75-via /qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94
 
       - name: Compile xd75's VIA keymap
-        run: qmk compile -kb xd75 -km via_jonz94
+        run: qmk compile -kb xiudi/xd75 -km via_jonz94
 
       - name: Rename compiled file
-        run: mv /qmk_firmware/xd75_via_jonz94.hex /qmk_firmware/xd75-via-jonz94.hex
+        run: mv /qmk_firmware/xiudi_xd75_via_jonz94.hex /qmk_firmware/xd75-via-jonz94.hex
 
       - name: Upload compiled file
         uses: actions/upload-artifact@master
