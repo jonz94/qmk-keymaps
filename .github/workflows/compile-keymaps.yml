@@ -111,6 +111,22 @@ jobs:
           name: dztech dz60rgb WKL v2's VIA by jonz94
           path: /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
 
+      # hineybush h60 VIA
+      - name: Copy hineybush-h60-via directory
+        run: cp -r ./hineybush-h60-via /qmk_firmware/keyboards/hineybush/h60/keymaps/via_jonz94
+
+      - name: Compile hineybush h60's VIA keymap
+        run: qmk compile -kb hineybush/h60 -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/hineybush_h60_via_jonz94.hex /qmk_firmware/hineybush-h60-via-jonz94.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: hineybush h60's VIA by jonz94
+          path: /qmk_firmware/hineybush-h60-via-jonz94.hex
+
       # idobo
       - name: Copy idobo-via directory
         run: cp -r ./idobo-via /qmk_firmware/keyboards/idobo/keymaps/via_jonz94
@@ -172,6 +188,7 @@ jobs:
             ./ergodox-via/zsa-ergodox-ez-via-awpr.json
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
+            /qmk_firmware/hineybush-h60-via-jonz94.hex
             /qmk_firmware/idobo-via-jonz94.hex
             /qmk_firmware/plexus75-via-jonz94.hex
             /qmk_firmware/xd75-via-jonz94.hex

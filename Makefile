@@ -5,6 +5,7 @@ all:
 	@$(MAKE) -s compile-ergodox-via
 	@$(MAKE) -s compile-dztech-dz60rgb-wkl-v2-via
 	@$(MAKE) -s compile-dztech-dz60rgb-ansi-v2-via
+	@$(MAKE) -s compile-hineybush-h60-via:
 	@$(MAKE) -s compile-idobo-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-xd75-via
@@ -26,6 +27,9 @@ compile-dztech-dz60rgb-wkl-v2-via:
 
 compile-dztech-dz60rgb-ansi-v2-via:
 	docker run -it --rm -v ${CURDIR}/dztech-dz60rgb-ansi-v2-via:/qmk_firmware/keyboards/dztech/dz60rgb_ansi/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb dztech/dz60rgb_ansi/v2 -km via_jonz94 && cp dztech_dz60rgb_ansi_v2_via_jonz94.hex /qmk_firmware/keyboards/dztech/dz60rgb_ansi/keymaps/via_jonz94/dztech-dz60rgb-ansi-v2-via-jonz94.hex'
+
+compile-hineybush-h60-via:
+	docker run -it --rm -v ${CURDIR}/hineybush-h60-via:/qmk_firmware/keyboards/hineybush/h60/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb hineybush/h60 -km via_jonz94 && cp hineybush_h60_via_jonz94.hex /qmk_firmware/keyboards/hineybush/h60/keymaps/via_jonz94/hineybush-h60-via-jonz94.hex'
 
 compile-idobo-via:
 	docker run -it --rm -v ${CURDIR}/idobo-via:/qmk_firmware/keyboards/idobo/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb idobo -km via_jonz94 && cp idobo_via_jonz94.hex /qmk_firmware/keyboards/idobo/keymaps/via_jonz94/idobo-via-jonz94.hex'
