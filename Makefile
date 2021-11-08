@@ -5,7 +5,7 @@ all:
 	@$(MAKE) -s compile-ergodox-via
 	@$(MAKE) -s compile-dztech-dz60rgb-wkl-v2-via
 	@$(MAKE) -s compile-dztech-dz60rgb-ansi-v2-via
-	@$(MAKE) -s compile-hineybush-h60-via:
+	@$(MAKE) -s compile-hineybush-h60-via
 	@$(MAKE) -s compile-idobo-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-xd75-via
