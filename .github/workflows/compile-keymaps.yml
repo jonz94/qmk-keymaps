@@ -159,6 +159,22 @@ jobs:
           name: plexus75's VIA by jonz94
           path: /qmk_firmware/plexus75-via-jonz94.hex
 
+      # plexus75 he
+      - name: Copy plexus75-he directory
+        run: cp -r ./plexus75-he /qmk_firmware/keyboards/plexus75_he
+
+      - name: Compile plexus75 HE's VIA keymap
+        run: qmk compile -kb plexus75_he -km via
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/plexus75_he_via.hex /qmk_firmware/plexus75-he-via-npspears.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@master
+        with:
+          name: plexus75 HE's VIA by npspears
+          path: /qmk_firmware/plexus75-he-via-npspears.hex
+
       # xd75
       - name: Copy xd75-via directory
         run: cp -r ./xd75-via /qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94
@@ -191,6 +207,8 @@ jobs:
             /qmk_firmware/hineybush-h60-via-jonz94.hex
             /qmk_firmware/idobo-via-jonz94.hex
             /qmk_firmware/plexus75-via-jonz94.hex
+            /qmk_firmware/plexus75-he-via-npspears.hex
+            ./plexus75-he/plexus75-he-via-npspears.json
             /qmk_firmware/xd75-via-jonz94.hex
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
