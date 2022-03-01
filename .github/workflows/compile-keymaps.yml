@@ -13,7 +13,7 @@ jobs:
     container:
       image: jonz94/qmk_firmware
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # Planck
       - name: Copy planck directory
