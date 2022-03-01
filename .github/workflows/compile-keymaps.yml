@@ -127,31 +127,31 @@ jobs:
           name: hineybush h60's VIA by jonz94
           path: /qmk_firmware/hineybush-h60-via-jonz94.hex
 
-      # idobo
-      - name: Copy idobo-via directory
-        run: cp -r ./idobo-via /qmk_firmware/keyboards/idobo/keymaps/via_jonz94
+      # idobao id75 v1 VIA
+      - name: Copy idobao-id75-v1-via directory
+        run: cp -r ./idobao-id75-v1-via /qmk_firmware/keyboards/idobao/id75/keymaps/via_jonz94
 
-      - name: Compile idobo's VIA keymap
-        run: qmk compile -kb idobo -km via_jonz94
+      - name: Compile id75's VIA keymap
+        run: qmk compile -kb idobao/id75/v1 -km via_jonz94
 
       - name: Rename compiled file
-        run: mv /qmk_firmware/idobo_via_jonz94.hex /qmk_firmware/idobo-via-jonz94.hex
+        run: mv /qmk_firmware/idobao_id75_v1_via_jonz94.hex /qmk_firmware/idobao-id75-v1-via-jonz94.hex
 
       - name: Upload compiled file
         uses: actions/upload-artifact@master
         with:
-          name: idobo's VIA by jonz94
-          path: /qmk_firmware/idobo-via-jonz94.hex
+          name: idobao id75 v1's VIA by jonz94
+          path: /qmk_firmware/idobao-id75-v1-via-jonz94.hex
 
       # plexus75
       - name: Copy plexus75-via directory
-        run: cp -r ./plexus75-via /qmk_firmware/keyboards/plexus75/keymaps/via_jonz94
+        run: cp -r ./plexus75-via /qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94
 
       - name: Compile plexus75's VIA keymap
-        run: qmk compile -kb plexus75 -km via_jonz94
+        run: qmk compile -kb checkerboards/plexus75 -km via_jonz94
 
       - name: Rename compiled file
-        run: mv /qmk_firmware/plexus75_via_jonz94.hex /qmk_firmware/plexus75-via-jonz94.hex
+        run: mv /qmk_firmware/checkerboards_plexus75_via_jonz94.hex /qmk_firmware/plexus75-via-jonz94.hex
 
       - name: Upload compiled file
         uses: actions/upload-artifact@master
@@ -205,7 +205,7 @@ jobs:
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/hineybush-h60-via-jonz94.hex
-            /qmk_firmware/idobo-via-jonz94.hex
+            /qmk_firmware/idobao-id75-v1-via-jonz94.hex
             /qmk_firmware/plexus75-via-jonz94.hex
             /qmk_firmware/plexus75-he-via-npspears.hex
             ./plexus75-he/plexus75-he-via-npspears.json

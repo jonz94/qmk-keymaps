@@ -6,7 +6,7 @@ all:
 	@$(MAKE) -s compile-dztech-dz60rgb-wkl-v2-via
 	@$(MAKE) -s compile-dztech-dz60rgb-ansi-v2-via
 	@$(MAKE) -s compile-hineybush-h60-via
-	@$(MAKE) -s compile-idobo-via
+	@$(MAKE) -s compile-idobao-id75-v1-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-plexus75-he-via
 	@$(MAKE) -s compile-xd75-via
@@ -32,11 +32,11 @@ compile-dztech-dz60rgb-ansi-v2-via:
 compile-hineybush-h60-via:
 	docker run -it --rm -v ${CURDIR}/hineybush-h60-via:/qmk_firmware/keyboards/hineybush/h60/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb hineybush/h60 -km via_jonz94 && cp hineybush_h60_via_jonz94.hex /qmk_firmware/keyboards/hineybush/h60/keymaps/via_jonz94/hineybush-h60-via-jonz94.hex'
 
-compile-idobo-via:
-	docker run -it --rm -v ${CURDIR}/idobo-via:/qmk_firmware/keyboards/idobo/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb idobo -km via_jonz94 && cp idobo_via_jonz94.hex /qmk_firmware/keyboards/idobo/keymaps/via_jonz94/idobo-via-jonz94.hex'
+compile-idobao-id75-v1-via:
+	docker run -it --rm -v ${CURDIR}/idobao-id75-v1-via:/qmk_firmware/keyboards/idobao/id75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb idobao/id75/v1 -km via_jonz94 && cp idobao_id75_v1_via_jonz94.hex /qmk_firmware/keyboards/idobao/id75/keymaps/via_jonz94/idobao-id75-v1-via-jonz94.hex'
 
 compile-plexus75-via:
-	docker run -it --rm -v ${CURDIR}/plexus75-via:/qmk_firmware/keyboards/plexus75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb plexus75 -km via_jonz94 && cp plexus75_via_jonz94.hex /qmk_firmware/keyboards/plexus75/keymaps/via_jonz94/plexus75-via-jonz94.hex'
+	docker run -it --rm -v ${CURDIR}/plexus75-via:/qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75 -km via_jonz94 && cp checkerboards_plexus75_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94/plexus75-via-jonz94.hex'
 
 compile-plexus75-he-via:
 	docker run -it --rm -v ${CURDIR}/plexus75-he:/qmk_firmware/keyboards/plexus75_he jonz94/qmk_firmware sh -c 'qmk compile -kb plexus75_he -km via && cp plexus75_he_via.hex /qmk_firmware/keyboards/plexus75_he/plexus75-he-via-npspears.hex'
