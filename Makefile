@@ -39,7 +39,7 @@ compile-plexus75-via:
 	docker run -it --rm -v ${CURDIR}/plexus75-via:/qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75 -km via_jonz94 && cp checkerboards_plexus75_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94/plexus75-via-jonz94.hex'
 
 compile-plexus75-he-via:
-	docker run -it --rm -v ${CURDIR}/plexus75-he:/qmk_firmware/keyboards/plexus75_he jonz94/qmk_firmware sh -c 'qmk compile -kb plexus75_he -km via && cp plexus75_he_via.hex /qmk_firmware/keyboards/plexus75_he/plexus75-he-via-npspears.hex'
+	docker run -it --rm -v ${CURDIR}/plexus75-he-via:/qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75_he -km via_jonz94 && cp checkerboards_plexus75_he_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94/plexus75-he-via-jonz94.hex'
 
 compile-xd75-via:
 	docker run -it --rm -v ${CURDIR}/xd75-via:/qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb xiudi/xd75 -km via_jonz94 && cp xiudi_xd75_via_jonz94.hex /qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94/xd75-via-jonz94.hex'
