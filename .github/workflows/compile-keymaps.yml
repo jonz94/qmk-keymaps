@@ -143,6 +143,22 @@ jobs:
           name: idobao id75 v1's VIA by jonz94
           path: /qmk_firmware/idobao-id75-v1-via-jonz94.hex
 
+      # nk65 v1.4 VIA
+      - name: Copy nk65-v1.4-via directory
+        run: cp -r ./nk65-v1.4-via /qmk_firmware/keyboards/novelkeys/nk65/keymaps/via_jonz94
+
+      - name: Compile nk65's VIA keymap
+        run: qmk compile -kb novelkeys/nk65/v1_4 -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/novelkeys_nk65_v1_4_via_jonz94.bin /qmk_firmware/novelkeys-nk65-v1.4-via-jonz94.bin
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@v2
+        with:
+          name: nk65 v1.4's VIA by jonz94
+          path: /qmk_firmware/novelkeys-nk65-v1.4-via-jonz94.bin
+
       # plexus75
       - name: Copy plexus75-via directory
         run: cp -r ./plexus75-via /qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94
