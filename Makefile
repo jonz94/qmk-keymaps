@@ -10,6 +10,7 @@ all:
 	@$(MAKE) -s compile-nk65-v1.4-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-plexus75-he-via
+	@$(MAKE) -s compile-wt60-h1-via
 	@$(MAKE) -s compile-xd75-via
 
 compile-planck:
@@ -44,6 +45,9 @@ compile-plexus75-via:
 
 compile-plexus75-he-via:
 	docker run -it --rm -v ${CURDIR}/plexus75-he-via:/qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75_he -km via_jonz94 && cp checkerboards_plexus75_he_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94/plexus75-he-via-jonz94.hex'
+
+compile-wt60-h1-via:
+	docker run -it --rm -v ${CURDIR}/wt60-h1-via:/qmk_firmware/keyboards/wilba_tech/wt60_h1/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb wilba_tech/wt60_h1 -km via_jonz94 && cp wilba_tech_wt60_h1_via_jonz94.hex /qmk_firmware/keyboards/wilba_tech/wt60_h1/keymaps/via_jonz94/wt60-h1-via-jonz94.hex'
 
 compile-xd75-via:
 	docker run -it --rm -v ${CURDIR}/xd75-via:/qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb xiudi/xd75 -km via_jonz94 && cp xiudi_xd75_via_jonz94.hex /qmk_firmware/keyboards/xiudi/xd75/keymaps/via_jonz94/xd75-via-jonz94.hex'
