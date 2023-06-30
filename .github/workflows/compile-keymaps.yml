@@ -71,13 +71,13 @@ jobs:
         run: qmk compile -kb ergodox_ez -km via_jonz94
 
       - name: Rename compiled file
-        run: mv /qmk_firmware/ergodox_ez_via_jonz94.hex /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
+        run: mv /qmk_firmware/ergodox_ez_base_via_jonz94.hex /qmk_firmware/zsa-ergodox-ez-via-jonz94.hex
 
       - name: Upload compiled file
         uses: actions/upload-artifact@v3
         with:
-          name: ergodox ez's VIA by awpr
-          path: /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
+          name: ergodox ez's VIA by jonz94
+          path: /qmk_firmware/zsa-ergodox-ez-via-jonz94.hex
 
       # dztech dz60rgb WKL v2 VIA
       - name: Copy dztech-dz60rgb-wkl-v2-via directory
@@ -216,8 +216,7 @@ jobs:
             /qmk_firmware/planck-rev6-jonz94.bin
             /qmk_firmware/planck-rev6-via-jonz94.bin
             /qmk_firmware/preonic-rev3-via-jonz94.bin
-            /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
-            ./ergodox-via/zsa-ergodox-ez-via-awpr.json
+            /qmk_firmware/zsa-ergodox-ez-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/hineybush-h60-via-jonz94.hex
