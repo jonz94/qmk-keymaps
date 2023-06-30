@@ -22,7 +22,7 @@ compile-preonic-via:
 	docker run -it --rm -v ${CURDIR}/preonic-via:/qmk_firmware/keyboards/preonic/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb preonic/rev3 -km via_jonz94 && cp preonic_rev3_via_jonz94.bin /qmk_firmware/keyboards/preonic/keymaps/via_jonz94/preonic-rev3-via-jonz94.bin'
 
 compile-ergodox-via:
-	docker run -it --rm -v ${CURDIR}/ergodox-via:/qmk_firmware/keyboards/ergodox_ez/keymaps/via jonz94/qmk_firmware sh -c 'qmk compile -kb ergodox_ez -km via && cp ergodox_ez_via.hex /qmk_firmware/keyboards/ergodox_ez/keymaps/via/zsa-ergodox-ez-via-awpr.hex'
+	docker run -it --rm -v ${CURDIR}/ergodox-via:/qmk_firmware/keyboards/ergodox_ez/keymaps/via jonz94/qmk_firmware sh -c 'qmk compile -kb ergodox_ez -km via && cp ergodox_ez_base_via.hex /qmk_firmware/keyboards/ergodox_ez/keymaps/via/ergodox-ez-base-via.hex'
 
 compile-dztech-dz60rgb-wkl-v2-via:
 	docker run -it --rm -v ${CURDIR}/dztech-dz60rgb-wkl-v2-via:/qmk_firmware/keyboards/dztech/dz60rgb_wkl/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb dztech/dz60rgb_wkl/v2 -km via_jonz94 && cp dztech_dz60rgb_wkl_v2_via_jonz94.hex /qmk_firmware/keyboards/dztech/dz60rgb_wkl/keymaps/via_jonz94/dztech-dz60rgb-wkl-v2-via-jonz94.hex'

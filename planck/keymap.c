@@ -34,11 +34,11 @@ static td_state_t td_state;
 // Declare your tapdance functions:
 
 // Function to determine the current tapdance state
-uint8_t current_dance(qk_tap_dance_state_t *state);
+uint8_t current_dance(tap_dance_state_t *state);
 
 // `finished` and `reset` functions for each tapdance keycode
-void raise_osmlsft_finished(qk_tap_dance_state_t *state, void *user_data);
-void raise_osmlsft_reset(qk_tap_dance_state_t *state, void *user_data);
+void raise_osmlsft_finished(tap_dance_state_t *state, void *user_data);
+void raise_osmlsft_reset(tap_dance_state_t *state, void *user_data);
 
 bool is_alt_gui_swapped(void);
 
@@ -148,18 +148,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|Debug | RGB  |RGBMOD| HUE+ | HUE- | SAT+ | SAT- |BRGTH+|BRGTH-|  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|Qwerty|Wrkman|Colemk|      |      |
+ * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Wrkman|Colemk|      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|TermOn|TermOf|      |      |      |
+ * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
-  _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL ,
-  _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  WORKMAN,  COLEMAK, _______, _______,
-  _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
+  _______, QK_BOOT, DB_TOGG, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_DEL ,
+  _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  WORKMAN, COLEMAK, _______, _______,
+  _______, KC_VOLD, KC_VOLU, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )
 
 };
@@ -315,7 +315,7 @@ bool music_mask_user(uint16_t keycode) {
 }
 
 // Determine the tapdance state to return
-uint8_t current_dance(qk_tap_dance_state_t *state) {
+uint8_t current_dance(tap_dance_state_t *state) {
   if (state->count == 1) {
     if (!state->pressed) return SINGLE_TAP;
     else return SINGLE_HOLD;
@@ -323,7 +323,7 @@ uint8_t current_dance(qk_tap_dance_state_t *state) {
 }
 
 // Handle the possible states for each tapdance keycode you define:
-void raise_osmlsft_finished(qk_tap_dance_state_t *state, void *user_data) {
+void raise_osmlsft_finished(tap_dance_state_t *state, void *user_data) {
   td_state = current_dance(state);
   switch (td_state) {
     case SINGLE_TAP:
@@ -337,7 +337,7 @@ void raise_osmlsft_finished(qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void raise_osmlsft_reset(qk_tap_dance_state_t *state, void *user_data) {
+void raise_osmlsft_reset(tap_dance_state_t *state, void *user_data) {
   switch (td_state) {
     case SINGLE_TAP:
       break;
@@ -350,7 +350,7 @@ void raise_osmlsft_reset(qk_tap_dance_state_t *state, void *user_data) {
 }
 
 // Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
   [RAISE_OSMLSFT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, raise_osmlsft_finished, raise_osmlsft_reset)
 };
 
