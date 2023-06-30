@@ -26,7 +26,7 @@ jobs:
         run: mv /qmk_firmware/planck_rev6_jonz94.bin /qmk_firmware/planck-rev6-jonz94.bin
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: planck rev6 keymap by jonz94
           path: /qmk_firmware/planck-rev6-jonz94.bin
@@ -42,7 +42,7 @@ jobs:
         run: mv /qmk_firmware/planck_rev6_via_jonz94.bin /qmk_firmware/planck-rev6-via-jonz94.bin
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: planck rev6's VIA by jonz94
           path: /qmk_firmware/planck-rev6-via-jonz94.bin
@@ -58,7 +58,7 @@ jobs:
         run: mv /qmk_firmware/preonic_rev3_via_jonz94.bin /qmk_firmware/preonic-rev3-via-jonz94.bin
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: preonic rev3's VIA by jonz94
           path: /qmk_firmware/preonic-rev3-via-jonz94.bin
@@ -74,7 +74,7 @@ jobs:
         run: mv /qmk_firmware/ergodox_ez_via_jonz94.hex /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ergodox ez's VIA by awpr
           path: /qmk_firmware/zsa-ergodox-ez-via-awpr.hex
@@ -90,7 +90,7 @@ jobs:
         run: mv /qmk_firmware/dztech_dz60rgb_wkl_v2_via_jonz94.hex /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dztech dz60rgb WKL v2's VIA by jonz94
           path: /qmk_firmware/dztech-dz60rgb-wkl-v2-via-jonz94.hex
@@ -106,7 +106,7 @@ jobs:
         run: mv /qmk_firmware/dztech_dz60rgb_ansi_v2_via_jonz94.hex /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dztech dz60rgb WKL v2's VIA by jonz94
           path: /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
@@ -122,7 +122,7 @@ jobs:
         run: mv /qmk_firmware/hineybush_h60_via_jonz94.hex /qmk_firmware/hineybush-h60-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: hineybush h60's VIA by jonz94
           path: /qmk_firmware/hineybush-h60-via-jonz94.hex
@@ -138,7 +138,7 @@ jobs:
         run: mv /qmk_firmware/idobao_id75_v1_via_jonz94.hex /qmk_firmware/idobao-id75-v1-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: idobao id75 v1's VIA by jonz94
           path: /qmk_firmware/idobao-id75-v1-via-jonz94.hex
@@ -154,7 +154,7 @@ jobs:
         run: mv /qmk_firmware/novelkeys_nk65_v1_4_via_jonz94.bin /qmk_firmware/novelkeys-nk65-v1.4-via-jonz94.bin
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: nk65 v1.4's VIA by jonz94
           path: /qmk_firmware/novelkeys-nk65-v1.4-via-jonz94.bin
@@ -170,7 +170,7 @@ jobs:
         run: mv /qmk_firmware/checkerboards_plexus75_via_jonz94.hex /qmk_firmware/plexus75-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: plexus75's VIA by jonz94
           path: /qmk_firmware/plexus75-via-jonz94.hex
@@ -186,7 +186,7 @@ jobs:
         run: mv /qmk_firmware/checkerboards_plexus75_he_via_jonz94.hex /qmk_firmware/plexus75-he-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: plexus75 HE's VIA by jonz94
           path: /qmk_firmware/plexus75-he-via-jonz94.hex
@@ -202,7 +202,7 @@ jobs:
         run: mv /qmk_firmware/xiudi_xd75_via_jonz94.hex /qmk_firmware/xd75-via-jonz94.hex
 
       - name: Upload compiled file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: xd75's VIA by jonz94
           path: /qmk_firmware/xd75-via-jonz94.hex
