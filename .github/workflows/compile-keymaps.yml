@@ -143,6 +143,22 @@ jobs:
           name: idobao id75 v1's VIA by jonz94
           path: /qmk_firmware/idobao-id75-v1-via-jonz94.hex
 
+      # Smith + Rune iron160 H VIA
+      - name: Copy iron160-h-via directory
+        run: cp -r ./iron160-h-via /qmk_firmware/keyboards/smithrune/iron160/iron160_h/keymaps/via_jonz94
+
+      - name: Compile iron160 H's VIA keymap
+        run: qmk compile -kb smithrune/iron160/iron160_h -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/smithrune_iron160_iron160_h_via_jonz94.bin /qmk_firmware/smithrune-iron160-h-via-jonz94.bin
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@v3
+        with:
+          name: Smith + Rune iron160's VIA by jonz94
+          path: /qmk_firmware/smithrune-iron160-h-via-jonz94.bin
+
       # nk65 v1.4 VIA
       - name: Copy nk65-v1.4-via directory
         run: cp -r ./nk65-v1.4-via /qmk_firmware/keyboards/novelkeys/nk65/keymaps/via_jonz94
@@ -253,6 +269,7 @@ jobs:
             /qmk_firmware/dztech-dz60rgb-ansi-v2-via-jonz94.hex
             /qmk_firmware/hineybush-h60-via-jonz94.hex
             /qmk_firmware/idobao-id75-v1-via-jonz94.hex
+            /qmk_firmware/smithrune-iron160-h-via-jonz94.bin
             /qmk_firmware/plexus75-via-jonz94.hex
             /qmk_firmware/plexus75-he-via-jonz94.hex
             ./plexus75-he-via/plexus75-he-via-npspears.json

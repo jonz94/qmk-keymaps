@@ -7,6 +7,7 @@ all:
 	@$(MAKE) -s compile-dztech-dz60rgb-ansi-v2-via
 	@$(MAKE) -s compile-hineybush-h60-via
 	@$(MAKE) -s compile-idobao-id75-v1-via
+	@$(MAKE) -s compile-iron160-h-via
 	@$(MAKE) -s compile-nk65-v1.4-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-plexus75-he-via
@@ -37,6 +38,9 @@ compile-hineybush-h60-via:
 
 compile-idobao-id75-v1-via:
 	docker run -it --rm -v ${CURDIR}/idobao-id75-v1-via:/qmk_firmware/keyboards/idobao/id75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb idobao/id75/v1 -km via_jonz94 && cp idobao_id75_v1_via_jonz94.hex /qmk_firmware/keyboards/idobao/id75/keymaps/via_jonz94/idobao-id75-v1-via-jonz94.hex'
+
+compile-iron160-h-via:
+	docker run -it --rm -v ${CURDIR}/iron160-h-via:/qmk_firmware/keyboards/smithrune/iron160/iron160_h/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb smithrune/iron160/iron160_h -km via_jonz94 && cp /qmk_firmware/smithrune_iron160_iron160_h_via_jonz94.bin /qmk_firmware/keyboards/smithrune/iron160/iron160_h/keymaps/via_jonz94/smithrune-iron160-h-via-jonz94.bin'
 
 compile-nk65-v1.4-via:
 	docker run -it --rm -v ${CURDIR}/nk65-v1.4-via:/qmk_firmware/keyboards/novelkeys/nk65/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb novelkeys/nk65/v1_4 -km via_jonz94 && cp novelkeys_nk65_v1_4_via_jonz94.bin /qmk_firmware/keyboards/novelkeys/nk65/keymaps/via_jonz94/novelkeys-nk65-v1.4-via-jonz94.bin'
