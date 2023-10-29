@@ -11,6 +11,7 @@ all:
 	@$(MAKE) -s compile-nk65-v1.4-via
 	@$(MAKE) -s compile-plexus75-via
 	@$(MAKE) -s compile-plexus75-he-via
+	@$(MAKE) -s compile-plx-via
 	@$(MAKE) -s compile-wt60-b-via
 	@$(MAKE) -s compile-wt60-h1-via
 	@$(MAKE) -s compile-xd75-via
@@ -47,6 +48,9 @@ compile-nk65-v1.4-via:
 
 compile-plexus75-via:
 	docker run -it --rm -v ${CURDIR}/plexus75-via:/qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75 -km via_jonz94 && cp checkerboards_plexus75_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75/keymaps/via_jonz94/plexus75-via-jonz94.hex'
+
+compile-plx-via:
+	docker run -it --rm -v ${CURDIR}/plx-via:/qmk_firmware/keyboards/plx/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb plx -km via_jonz94 && cp plx_via_jonz94.hex /qmk_firmware/keyboards/plx/keymaps/via_jonz94/plx-via-jonz94.hex'
 
 compile-plexus75-he-via:
 	docker run -it --rm -v ${CURDIR}/plexus75-he-via:/qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94 jonz94/qmk_firmware sh -c 'qmk compile -kb checkerboards/plexus75_he -km via_jonz94 && cp checkerboards_plexus75_he_via_jonz94.hex /qmk_firmware/keyboards/checkerboards/plexus75_he/keymaps/via_jonz94/plexus75-he-via-jonz94.hex'

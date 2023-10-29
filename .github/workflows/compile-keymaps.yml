@@ -207,6 +207,22 @@ jobs:
           name: plexus75 HE's VIA by jonz94
           path: /qmk_firmware/plexus75-he-via-jonz94.hex
 
+      # PLX
+      - name: Copy plx-via directory
+        run: cp -r ./plx-via /qmk_firmware/keyboards/plx/keymaps/via_jonz94
+
+      - name: Compile PLX's VIA keymap
+        run: qmk compile -kb plx -km via_jonz94
+
+      - name: Rename compiled file
+        run: mv /qmk_firmware/plx_via_jonz94.hex /qmk_firmware/plx-via-jonz94.hex
+
+      - name: Upload compiled file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PLX's VIA by jonz94
+          path: /qmk_firmware/plx-via-jonz94.hex
+
       # WT60-B
       - name: Copy wt60-b-via directory
         run: cp -r ./wt60-b-via /qmk_firmware/keyboards/wilba_tech/wt60_b/keymaps/via_jonz94
@@ -272,6 +288,7 @@ jobs:
             /qmk_firmware/smithrune-iron160-h-via-jonz94.bin
             /qmk_firmware/plexus75-via-jonz94.hex
             /qmk_firmware/plexus75-he-via-jonz94.hex
+            /qmk_firmware/plx-via-jonz94.hex
             ./plexus75-he-via/plexus75-he-via-npspears.json
             /qmk_firmware/wt60-b-via-jonz94.hex
             /qmk_firmware/wt60-h1-via-jonz94.hex
