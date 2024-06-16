@@ -303,10 +303,11 @@ jobs:
             /qmk_firmware/idobao-id75-v1-via-jonz94.hex
             /qmk_firmware/smithrune-iron160-h-via-jonz94.bin
             /qmk_firmware/mnk-60-ec-via-jonz94.bin
+            /qmk_firmware/novelkeys-nk65-v1.4-via-jonz94.bin
             /qmk_firmware/plexus75-via-jonz94.hex
             /qmk_firmware/plexus75-he-via-jonz94.hex
-            /qmk_firmware/plx-via-jonz94.hex
             ./plexus75-he-via/plexus75-he-via-npspears.json
+            /qmk_firmware/plx-via-jonz94.hex
             /qmk_firmware/wt60-b-via-jonz94.hex
             /qmk_firmware/wt60-h1-via-jonz94.hex
             /qmk_firmware/xd75-via-jonz94.hex
